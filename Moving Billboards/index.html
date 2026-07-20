@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/organic-580b47f4-9853-46a8-9d85-c614c45b3192/styles.css">
+<script src="image-slot.js"></script>
+<style>
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce){ html { scroll-behavior: auto; } }
+@keyframes mbFadeUp { from { opacity:0; transform: translateY(26px);} to { opacity:1; transform:none;} }
+@keyframes mbPulse { 0%,100%{ transform:scale(1); opacity:1;} 50%{ transform:scale(1.9); opacity:0;} }
+@keyframes mbDash { to { stroke-dashoffset: -240; } }
+a { color: var(--color-accent-700); text-decoration-color: color-mix(in srgb, var(--color-accent) 45%, transparent); }
+a:hover { color: var(--color-accent-800); }
+</style>
+</helmet>
+<div ref="{{ root }}" style="font-family:var(--font-body);color:var(--color-text);background:var(--color-bg);overflow-x:clip;position:relative">
+
+  <nav style="position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px clamp(20px,5vw,72px);background:color-mix(in srgb,var(--color-bg) 82%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--color-divider)">
+    <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit">
+      <span style="display:grid;place-content:center;width:56px;height:40px;border-radius:12px;background:#fff;box-shadow:var(--shadow-sm);overflow:hidden;flex:none">
+        <img src="assets/logo-icon.jpeg" alt="Moving Billboards" style="width:100%;height:100%;object-fit:contain">
+      </span>
+      <span style="display:flex;flex-direction:column;line-height:1">
+        <strong style="font-family:var(--font-heading);font-weight:400;font-size:19px">Moving Billboards</strong>
+        <span style="font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--color-accent-700);margin-top:3px">Vehicle Advertising Network</span>
+      </span>
+    </a>
+    <div style="display:flex;align-items:center;gap:6px">
+      <a href="#fleet" style="text-decoration:none;color:var(--color-text);font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px" style-hover="background:var(--color-accent-100);color:var(--color-accent-800)">Fleet</a>
+      <a href="#routes" style="text-decoration:none;color:var(--color-text);font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px" style-hover="background:var(--color-accent-100);color:var(--color-accent-800)">Routes</a>
+      <a href="#how" style="text-decoration:none;color:var(--color-text);font-weight:600;font-size:14px;padding:8px 12px;border-radius:999px" style-hover="background:var(--color-accent-100);color:var(--color-accent-800)">How it works</a>
+      <a href="#book" class="btn btn-primary" style="text-decoration:none">Book a proposal</a>
+    </div>
+  </nav>
+
+  <a id="top"></a>
+  <header style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,96px) clamp(20px,5vw,72px) clamp(30px,5vw,60px)">
+    <div style="position:absolute;right:-140px;top:-120px;width:420px;height:420px;border-radius:50%;background:var(--color-accent-2-200);z-index:0;pointer-events:none"></div>
+    <div style="position:relative;z-index:1;max-width:760px">
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700);animation:mbFadeUp .7s both">
+        <span style="position:relative;display:inline-block;width:9px;height:9px"><span style="position:absolute;inset:0;border-radius:50%;background:var(--color-accent)"></span><span style="position:absolute;inset:0;border-radius:50%;background:var(--color-accent);animation:mbPulse 2s infinite"></span></span>
+        Sandton &amp; Randburg · on the road right now
+      </span>
+      <h1 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(44px,6.4vw,84px);line-height:1.02;letter-spacing:-.02em;margin:22px 0 0;animation:mbFadeUp .7s .06s both">
+        <span style="display:block">Advertising that</span>
+        <span style="display:block">drives <span style="color:var(--color-accent)">itself.</span></span>
+      </h1>
+      <p style="font-size:clamp(17px,1.5vw,20px);line-height:1.6;max-width:56ch;margin:26px 0 0;color:color-mix(in srgb,var(--color-text) 82%,transparent);animation:mbFadeUp .7s .12s both">We turn a fleet of branded cars into your billboard across Joburg's busiest, wealthiest roads 200+ km every single week, for a fraction of a static board that never moves. Your brand, everywhere your buyers already are.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px;animation:mbFadeUp .7s .18s both">
+        <a href="#book" class="btn btn-primary" style="text-decoration:none">Book a proposal</a>
+        <a href="#fleet" class="btn btn-ghost" style="text-decoration:none">Meet the fleet</a>
+        <sc-if value="{{ liveTicker }}" hint-placeholder-val="{{ true }}">
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:var(--color-accent-2-100);font-size:14px;font-weight:600;color:var(--color-accent-2-800)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            <span ref="{{ liveRef }}" style="font-variant-numeric:tabular-nums;min-width:52px;display:inline-block">1,000</span> impressions and climbing
+          </span>
+        </sc-if>
+      </div>
+    </div>
+  </header>
+
+  <section style="max-width:1200px;margin:0 auto;padding:clamp(20px,3vw,40px) clamp(20px,5vw,72px) clamp(48px,7vw,96px)">
+    <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);background:var(--color-surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:clamp(18px,2.4vw,30px)">
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:14px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20 3 17V4l6 3 6-3 6 3v13l-6-3-6 3Z"></path><path d="M9 7v13M15 4v13"></path></svg>
+          <span style="font-family:var(--font-heading);font-size:20px">Live fleet map</span>
+        </div>
+        <span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700)">Sandton · Randburg · Ferndale</span>
+      </div>
+
+      <div style="border-radius:var(--radius-md);overflow:hidden;background:var(--color-neutral-100)">
+        <svg viewBox="0 0 860 560" style="display:block;width:100%;height:auto" role="img" aria-label="Animated map of the fleet driving arterial routes across Sandton and Randburg">
+          <rect x="0" y="0" width="860" height="560" fill="var(--color-neutral-100)"></rect>
+          <ellipse cx="160" cy="140" rx="120" ry="90" fill="var(--color-accent-2-200)" opacity="0.5"></ellipse>
+          <ellipse cx="720" cy="450" rx="140" ry="100" fill="var(--color-accent-2-200)" opacity="0.45"></ellipse>
+          <ellipse cx="470" cy="120" rx="70" ry="55" fill="var(--color-accent-2-100)" opacity="0.8"></ellipse>
+          <rect x="470" y="250" width="150" height="120" rx="14" fill="var(--color-neutral-200)" opacity="0.7"></rect>
+          <rect x="250" y="330" width="120" height="90" rx="14" fill="var(--color-neutral-200)" opacity="0.6"></rect>
+
+          <g fill="none" stroke-linecap="round">
+            <path id="mbR1" d="M 170 90 C 380 40, 640 70, 720 200 C 770 300, 640 440, 460 470 C 300 495, 130 420, 130 260 C 130 165, 135 112, 170 90 Z" stroke="var(--color-neutral-300)" stroke-width="13"></path>
+            <path d="M 170 90 C 380 40, 640 70, 720 200 C 770 300, 640 440, 460 470 C 300 495, 130 420, 130 260 C 130 165, 135 112, 170 90 Z" stroke="var(--color-neutral-500)" stroke-width="1.6" stroke-dasharray="2 11"></path>
+            <path id="mbR2" d="M 250 500 C 360 380, 500 300, 720 250" stroke="var(--color-neutral-300)" stroke-width="12"></path>
+            <path d="M 250 500 C 360 380, 500 300, 720 250" stroke="var(--color-neutral-500)" stroke-width="1.6" stroke-dasharray="2 11"></path>
+            <path id="mbR3" d="M 340 55 C 305 220, 365 360, 320 525" stroke="var(--color-neutral-300)" stroke-width="12"></path>
+            <path d="M 340 55 C 305 220, 365 360, 320 525" stroke="var(--color-neutral-500)" stroke-width="1.6" stroke-dasharray="2 11"></path>
+            <path id="mbR4" d="M 120 350 C 340 300, 560 345, 770 300" stroke="var(--color-neutral-300)" stroke-width="12"></path>
+            <path d="M 120 350 C 340 300, 560 345, 770 300" stroke="var(--color-neutral-500)" stroke-width="1.6" stroke-dasharray="2 11"></path>
+            <path id="mbR5" d="M 600 195 C 645 260, 630 335, 545 385" stroke="var(--color-neutral-300)" stroke-width="11"></path>
+            <path d="M 600 195 C 645 260, 630 335, 545 385" stroke="var(--color-neutral-500)" stroke-width="1.6" stroke-dasharray="2 11"></path>
+          </g>
+
+          <g font-family="var(--font-body)" font-weight="700">
+            <circle cx="600" cy="212" r="8" fill="var(--color-accent)"></circle>
+            <text x="614" y="209" font-size="17" fill="var(--color-neutral-800)">Sandton CBD</text>
+            <text x="614" y="228" font-size="12" fill="var(--color-neutral-600)" font-weight="600">arterial hub</text>
+            <circle cx="185" cy="255" r="8" fill="var(--color-accent-2-600)"></circle>
+            <text x="199" y="252" font-size="17" fill="var(--color-neutral-800)">Randburg</text>
+            <text x="199" y="271" font-size="12" fill="var(--color-neutral-600)" font-weight="600">Ferndale</text>
+          </g>
+          <g font-family="var(--font-body)" font-weight="600" font-size="12.5" fill="var(--color-neutral-600)">
+            <text x="150" y="470" transform="rotate(-70 150 470)">William Nicol Dr</text>
+            <text x="470" y="470">Rivonia Rd</text>
+            <text x="230" y="330">Grayston Dr</text>
+            <text x="355" y="120">Jan Smuts Ave</text>
+          </g>
+
+          <g><title>Suzuki Baleno — 200+ km/week</title>
+            <g><rect x="-15" y="-8.5" width="30" height="17" rx="7.5" fill="#d67f48"></rect><rect x="-15" y="-3" width="30" height="6" rx="3" fill="#8c491a" opacity="0.4"></rect><rect x="-10" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.9"></rect><rect x="3" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.6"></rect></g>
+            <animateMotion dur="{{ dur1 }}" repeatCount="indefinite" rotate="auto" begin="0s"><mpath href="#mbR1"></mpath></animateMotion>
+          </g>
+          <g><title>Renault Kiger — 200+ km/week</title>
+            <g><rect x="-15" y="-8.5" width="30" height="17" rx="7.5" fill="#8fa073"></rect><rect x="-15" y="-3" width="30" height="6" rx="3" fill="#56633f" opacity="0.4"></rect><rect x="-10" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.9"></rect><rect x="3" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.6"></rect></g>
+            <animateMotion dur="{{ dur2 }}" repeatCount="indefinite" rotate="auto" begin="-3s"><mpath href="#mbR2"></mpath></animateMotion>
+          </g>
+          <g><title>Nissan Magnite — 200+ km/week</title>
+            <g><rect x="-15" y="-8.5" width="30" height="17" rx="7.5" fill="#b2622d"></rect><rect x="-15" y="-3" width="30" height="6" rx="3" fill="#402310" opacity="0.4"></rect><rect x="-10" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.9"></rect><rect x="3" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.6"></rect></g>
+            <animateMotion dur="{{ dur3 }}" repeatCount="indefinite" rotate="auto" begin="-6s"><mpath href="#mbR3"></mpath></animateMotion>
+          </g>
+          <g><title>Chery Tiggo 4 — 200+ km/week</title>
+            <g><rect x="-15" y="-8.5" width="30" height="17" rx="7.5" fill="#728157"></rect><rect x="-15" y="-3" width="30" height="6" rx="3" fill="#272e1b" opacity="0.4"></rect><rect x="-10" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.9"></rect><rect x="3" y="-6.5" width="7.5" height="13" rx="3" fill="#fff2eb" opacity="0.6"></rect></g>
+            <animateMotion dur="{{ dur4 }}" repeatCount="indefinite" rotate="auto" begin="-2s"><mpath href="#mbR4"></mpath></animateMotion>
+          </g>
+          <g><title>Hyundai Grand i10 — 200+ km/week</title>
+            <g><rect x="-14" y="-8" width="28" height="16" rx="7" fill="#645c50"></rect><rect x="-14" y="-3" width="28" height="6" rx="3" fill="#2e2b25" opacity="0.4"></rect><rect x="-9.5" y="-6" width="7" height="12" rx="3" fill="#fff2eb" opacity="0.9"></rect><rect x="2.5" y="-6" width="7" height="12" rx="3" fill="#fff2eb" opacity="0.6"></rect></g>
+            <animateMotion dur="{{ dur5 }}" repeatCount="indefinite" rotate="auto" begin="-5s"><mpath href="#mbR5"></mpath></animateMotion>
+          </g>
+        </svg>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:8px 10px;margin-top:16px">
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--color-neutral-100);font-size:13px;font-weight:600"><span style="width:11px;height:11px;border-radius:3px;background:#d67f48"></span>Suzuki Baleno</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--color-neutral-100);font-size:13px;font-weight:600"><span style="width:11px;height:11px;border-radius:3px;background:#8fa073"></span>Renault Kiger</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--color-neutral-100);font-size:13px;font-weight:600"><span style="width:11px;height:11px;border-radius:3px;background:#b2622d"></span>Nissan Magnite</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--color-neutral-100);font-size:13px;font-weight:600"><span style="width:11px;height:11px;border-radius:3px;background:#728157"></span>Chery Tiggo 4</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--color-neutral-100);font-size:13px;font-weight:600"><span style="width:11px;height:11px;border-radius:3px;background:#645c50"></span>Hyundai Grand i10</span>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-accent-900);color:var(--color-accent-100)">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,7vw,88px) clamp(20px,5vw,72px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+        <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-300)">The numbers, moving</span>
+        <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.06;margin:14px 0 0;color:#fff2eb;max-width:20ch">Reach that compounds every kilometre.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(20px,3vw,44px);margin-top:clamp(30px,4vw,52px)">
+        <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+          <div style="font-family:var(--font-heading);font-size:clamp(48px,6vw,76px);line-height:1;color:#fff2eb"><span ref="{{ vehRef }}">0</span></div>
+          <div style="font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--color-accent-300);margin-top:10px">Branded vehicles</div>
+          <p style="font-size:14px;line-height:1.55;color:var(--color-accent-200);margin:8px 0 0;max-width:26ch">A modern, high-visibility fleet on the road daily.</p>
+        </div>
+        <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:60ms" data-reveal-delay="60">
+          <div style="font-family:var(--font-heading);font-size:clamp(48px,6vw,76px);line-height:1;color:#fff2eb"><span ref="{{ dailyRef }}">0</span></div>
+          <div style="font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--color-accent-300);margin-top:10px">Daily impressions</div>
+          <p style="font-size:14px;line-height:1.55;color:var(--color-accent-200);margin:8px 0 0;max-width:26ch">Your brand seen by thousands of buyers every day.</p>
+        </div>
+        <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:120ms" data-reveal-delay="120">
+          <div style="font-family:var(--font-heading);font-size:clamp(48px,6vw,76px);line-height:1;color:#fff2eb"><span ref="{{ kmRef }}">0</span></div>
+          <div style="font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--color-accent-300);margin-top:10px">KM per vehicle / week</div>
+          <p style="font-size:14px;line-height:1.55;color:var(--color-accent-200);margin:8px 0 0;max-width:26ch">Major arterial routes, covered week in, week out.</p>
+        </div>
+        <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:180ms" data-reveal-delay="180">
+          <div style="font-family:var(--font-heading);font-size:clamp(48px,6vw,76px);line-height:1;color:#fff2eb"><span ref="{{ monthlyRef }}">0</span></div>
+          <div style="font-size:14px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--color-accent-300);margin-top:10px">Monthly impressions</div>
+          <p style="font-size:14px;line-height:1.55;color:var(--color-accent-200);margin:8px 0 0;max-width:26ch">Compounding recall across the whole fleet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="fleet" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,72px)">
+    <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);max-width:620px">
+      <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700)">The fleet</span>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.06;margin:14px 0 0">Five high-visibility cars. One relentless billboard.</h2>
+      <p style="font-size:16px;line-height:1.6;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Each vehicle is fully branded with magnetic door signage and travels key arterial routes daily maximising street-level exposure across Joburg's premium north.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(16px,2vw,26px);margin-top:clamp(30px,4vw,48px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <figure style="margin:0;aspect-ratio:4/3;background:#fff;display:grid;place-content:center;padding:16px"><img src="assets/fleet/baleno.png" alt="2026 Suzuki Baleno" style="max-width:100%;max-height:100%;object-fit:contain"></figure>
+        <div style="padding:18px 20px 22px"><span class="tag tag-accent">200+ km/wk</span><h3 style="font-family:var(--font-heading);font-weight:400;font-size:22px;margin:12px 0 4px">2026 Suzuki Baleno</h3><p style="font-size:13.5px;color:color-mix(in srgb,var(--color-text) 70%,transparent);margin:0">Sandton &amp; Randburg</p></div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:60ms;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <figure style="margin:0;aspect-ratio:4/3;background:#fff;display:grid;place-content:center;padding:16px"><img src="assets/fleet/kiger.png" alt="Renault Kiger" style="max-width:100%;max-height:100%;object-fit:contain"></figure>
+        <div style="padding:18px 20px 22px"><span class="tag tag-accent-2">200+ km/wk</span><h3 style="font-family:var(--font-heading);font-weight:400;font-size:22px;margin:12px 0 4px">Renault Kiger</h3><p style="font-size:13.5px;color:color-mix(in srgb,var(--color-text) 70%,transparent);margin:0">Sandton &amp; Randburg</p></div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:120ms;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <figure style="margin:0;aspect-ratio:4/3;background:#fff;display:grid;place-content:center;padding:16px"><img src="assets/fleet/magnite.png" alt="Nissan Magnite" style="max-width:100%;max-height:100%;object-fit:contain"></figure>
+        <div style="padding:18px 20px 22px"><span class="tag tag-accent">200+ km/wk</span><h3 style="font-family:var(--font-heading);font-weight:400;font-size:22px;margin:12px 0 4px">Nissan Magnite</h3><p style="font-size:13.5px;color:color-mix(in srgb,var(--color-text) 70%,transparent);margin:0">Sandton &amp; Randburg</p></div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:180ms;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <figure style="margin:0;aspect-ratio:4/3;background:#fff;display:grid;place-content:center;padding:16px"><img src="assets/fleet/tiggo.png" alt="Chery Tiggo 4" style="max-width:100%;max-height:100%;object-fit:contain"></figure>
+        <div style="padding:18px 20px 22px"><span class="tag tag-accent-2">200+ km/wk</span><h3 style="font-family:var(--font-heading);font-weight:400;font-size:22px;margin:12px 0 4px">Chery Tiggo 4</h3><p style="font-size:13.5px;color:color-mix(in srgb,var(--color-text) 70%,transparent);margin:0">Sandton &amp; Randburg</p></div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:240ms;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <figure style="margin:0;aspect-ratio:4/3;background:#fff;display:grid;place-content:center;padding:16px"><img src="assets/fleet/i10.png" alt="Hyundai Grand i10" style="max-width:100%;max-height:100%;object-fit:contain"></figure>
+        <div style="padding:18px 20px 22px"><span class="tag tag-neutral">200+ km/wk</span><h3 style="font-family:var(--font-heading);font-weight:400;font-size:22px;margin:12px 0 4px">Hyundai Grand i10</h3><p style="font-size:13.5px;color:color-mix(in srgb,var(--color-text) 70%,transparent);margin:0">Sandton &amp; Randburg</p></div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:300ms;display:flex;flex-direction:column;justify-content:center;gap:10px;background:var(--color-accent-2-100);border-radius:var(--radius-lg);padding:26px">
+        <span style="font-family:var(--font-heading);font-size:40px;line-height:1;color:var(--color-accent-2-800)">5</span>
+        <p style="font-size:15px;line-height:1.5;color:var(--color-accent-2-800);margin:0;font-weight:600">vehicles, left &amp; right doors up to 10 branded surfaces on the move.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="background:var(--color-surface)">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,72px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center">
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+        <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700)">How it works</span>
+        <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(28px,3.6vw,44px);line-height:1.08;margin:14px 0 0">Magnetic door signage. On in seconds, off without a mark.</h2>
+        <p style="font-size:16px;line-height:1.6;margin:18px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Premium 61 × 30.5 cm magnetic door stickers on every vehicle - a practical, cost-effective moving billboard that delivers brand presence on every single journey.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:26px">
+          <div style="display:flex;align-items:center;gap:13px"><span style="flex:none;display:grid;place-content:center;width:34px;height:34px;border-radius:999px;background:var(--color-accent-2-200);color:var(--color-accent-2-800)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:15.5px;font-weight:600">Easy on / easy off - no paint damage, ever</span></div>
+          <div style="display:flex;align-items:center;gap:13px"><span style="flex:none;display:grid;place-content:center;width:34px;height:34px;border-radius:999px;background:var(--color-accent-2-200);color:var(--color-accent-2-800)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:15.5px;font-weight:600">Swap between vehicles instantly</span></div>
+          <div style="display:flex;align-items:center;gap:13px"><span style="flex:none;display:grid;place-content:center;width:34px;height:34px;border-radius:999px;background:var(--color-accent-2-200);color:var(--color-accent-2-800)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-size:15.5px;font-weight:600">Visible from distance, at speed</span></div>
+        </div>
+      </div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:100ms">
+        <div style="position:relative;background:var(--color-neutral-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:22px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px"><span style="font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-neutral-600)">Door magnet</span><span class="tag tag-outline">61 × 30.5 cm</span></div>
+          <div class="washed" style="aspect-ratio:2/1;border-radius:var(--radius-md);overflow:hidden;background:var(--color-neutral-200)">
+            <img src="assets/magnet-fitted.png" alt="Branded door magnet fitted to a vehicle" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <p style="font-size:13px;color:var(--color-neutral-600);margin:14px 0 0;text-align:center">A fitted magnet on the door — drop your artwork in, we print, cut and fit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,72px)">
+    <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);max-width:620px">
+      <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700)">Proof on the street</span>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.06;margin:14px 0 0">Real brands, already rolling.</h2>
+      <p style="font-size:16px;line-height:1.6;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Live door-magnet campaigns out on Sandton and Randburg roads right now — this is exactly how your brand shows up.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(16px,2vw,26px);margin-top:clamp(30px,4vw,48px)">
+      <figure data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);margin:0;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <div class="washed" style="aspect-ratio:4/3;overflow:hidden"><img src="assets/mockup-suzuki-mb.jpeg" alt="Suzuki Baleno branded for Moving Billboards" style="width:100%;height:100%;object-fit:cover"></div>
+        <figcaption style="padding:16px 20px 20px"><span class="tag tag-accent">Suzuki Baleno</span><p style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:12px 0 0">Moving Billboards</p></figcaption>
+      </figure>
+      <figure data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:80ms;margin:0;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <div class="washed" style="aspect-ratio:4/3;overflow:hidden"><img src="assets/mockup-renault-kt.jpeg" alt="Renault branded for KT Health &amp; Wellness" style="width:100%;height:100%;object-fit:cover"></div>
+        <figcaption style="padding:16px 20px 20px"><span class="tag tag-accent-2">Renault Kiger</span><p style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:12px 0 0">KT Health &amp; Wellness</p></figcaption>
+      </figure>
+      <figure data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:160ms;margin:0;background:var(--color-surface);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm)">
+        <div class="washed" style="aspect-ratio:4/3;overflow:hidden"><img src="assets/mockup-nissan-vic.jpeg" alt="Nissan branded for Victorius Scents" style="width:100%;height:100%;object-fit:cover"></div>
+        <figcaption style="padding:16px 20px 20px"><span class="tag tag-neutral">Nissan Magnite</span><p style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:12px 0 0">Victorius Scents</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="routes" style="max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,104px) clamp(20px,5vw,72px)">
+    <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);max-width:620px">
+      <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700)">Route coverage</span>
+      <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(30px,4vw,48px);line-height:1.06;margin:14px 0 0">Where the fleet lives, all week long.</h2>
+      <p style="font-size:16px;line-height:1.6;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 78%,transparent)">Consistent, high-frequency coverage of the corridors your buyers drive daily - the routes that build maximum brand recall.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:clamp(28px,4vw,44px)">
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);display:flex;gap:14px;padding:20px 22px;border-radius:var(--radius-md);background:var(--color-accent-2-100)"><span style="flex:none;width:12px;height:12px;border-radius:50%;background:var(--color-accent);margin-top:6px"></span><div><h3 style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:0">Sandton CBD &amp; surrounds</h3><p style="font-size:14px;color:color-mix(in srgb,var(--color-text) 74%,transparent);margin:5px 0 0">Daily arterial coverage of the financial heart.</p></div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:60ms;display:flex;gap:14px;padding:20px 22px;border-radius:var(--radius-md);background:var(--color-accent-2-100)"><span style="flex:none;width:12px;height:12px;border-radius:50%;background:var(--color-accent);margin-top:6px"></span><div><h3 style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:0">Randburg &amp; Ferndale</h3><p style="font-size:14px;color:color-mix(in srgb,var(--color-text) 74%,transparent);margin:5px 0 0">High-traffic commercial zones.</p></div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:120ms;display:flex;gap:14px;padding:20px 22px;border-radius:var(--radius-md);background:var(--color-accent-2-100)"><span style="flex:none;width:12px;height:12px;border-radius:50%;background:var(--color-accent);margin-top:6px"></span><div><h3 style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:0">William Nicol Drive</h3><p style="font-size:14px;color:color-mix(in srgb,var(--color-text) 74%,transparent);margin:5px 0 0">Peak-hour visibility on the north's busiest corridor.</p></div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:180ms;display:flex;gap:14px;padding:20px 22px;border-radius:var(--radius-md);background:var(--color-accent-2-100)"><span style="flex:none;width:12px;height:12px;border-radius:50%;background:var(--color-accent);margin-top:6px"></span><div><h3 style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:0">Rivonia Road &amp; Grayston</h3><p style="font-size:14px;color:color-mix(in srgb,var(--color-text) 74%,transparent);margin:5px 0 0">Premium residential reach.</p></div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:240ms;display:flex;gap:14px;padding:20px 22px;border-radius:var(--radius-md);background:var(--color-accent-2-100)"><span style="flex:none;width:12px;height:12px;border-radius:50%;background:var(--color-accent);margin-top:6px"></span><div><h3 style="font-family:var(--font-heading);font-weight:400;font-size:19px;margin:0">Jan Smuts Avenue</h3><p style="font-size:14px;color:color-mix(in srgb,var(--color-text) 74%,transparent);margin:5px 0 0">Connecting the north &amp; south all day.</p></div></div>
+      <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:300ms;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px 22px;border-radius:var(--radius-md);background:var(--color-accent);color:#fff2eb"><span style="font-family:var(--font-heading);font-size:30px;line-height:1">1,000+</span><p style="font-size:14px;margin:0;font-weight:600;color:var(--color-accent-100)">km covered across the fleet, every week.</p></div>
+    </div>
+  </section>
+
+  <section style="max-width:1100px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(20px,5vw,72px)">
+    <blockquote data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);font-family:var(--font-heading);font-weight:400;font-size:clamp(26px,3.6vw,44px);line-height:1.2;margin:0;max-width:22ch;text-indent:-.4em">"Every journey is a fresh set of eyes. No rent, no permits, no fixed board — just your brand, everywhere your market already drives."</blockquote>
+  </section>
+
+  <section id="book" style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(56px,8vw,104px)">
+    <div data-reveal="" style="opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);position:relative;overflow:hidden;background:var(--color-accent-2-100);border-radius:var(--radius-lg);padding:clamp(32px,5vw,64px)">
+      <div style="position:absolute;right:-90px;bottom:-90px;width:280px;height:280px;border-radius:50%;background:var(--color-accent-2-200);pointer-events:none"></div>
+      <div style="position:relative;z-index:1;max-width:640px">
+        <span style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-2-800)">Let's roll</span>
+        <h2 style="font-family:var(--font-heading);font-weight:400;font-size:clamp(28px,4vw,52px);line-height:1.04;margin:14px 0 0">Ready to put your brand on the road?</h2>
+        <p style="font-size:16px;line-height:1.6;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 80%,transparent)">Tell us who you want to reach and we'll send a tailored proposal, pricing, routes and mockups for your brand across Sandton &amp; Randburg.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:28px">
+          <a href="https://wa.me/message/FCDKMER26UKTM1" target="_blank" rel="noopener" class="btn btn-primary" style="text-decoration:none;display:inline-flex;align-items:center;gap:9px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6A8.5 8.5 0 1 1 21 11.5Z"></path></svg>Chat on WhatsApp</a>
+          <a href="mailto:movingbillboardssa@gmail.com" class="btn btn-secondary" style="text-decoration:none">Email us</a>
+          <a href="tel:+27825032945" class="btn btn-ghost" style="text-decoration:none">+27 82 503 2945</a>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;font-size:14px;font-weight:600;color:var(--color-accent-2-800)">
+          <span>movingbillboardssa@gmail.com</span><span>·</span><span>+27 82 503 2945</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid var(--color-divider)">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(30px,4vw,48px) clamp(20px,5vw,72px);display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between;font-size:13.5px;color:color-mix(in srgb,var(--color-text) 68%,transparent)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="display:grid;place-content:center;width:46px;height:32px;border-radius:9px;background:#fff;box-shadow:var(--shadow-sm);overflow:hidden;flex:none"><img src="assets/logo-icon.jpeg" alt="Moving Billboards" style="width:100%;height:100%;object-fit:contain"></span>
+        <strong style="font-family:var(--font-heading);font-weight:400;font-size:16px;color:var(--color-text)">Moving Billboards</strong>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px 22px">
+        <span>Sandton &amp; Randburg, Johannesburg</span>
+        <span>moving-billboards.co.za</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;pace&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Cruising&quot;,&quot;Rush hour&quot;,&quot;Highway sprint&quot;],&quot;default&quot;:&quot;Cruising&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Motion&quot;},&quot;liveTicker&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Motion&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.root = React.createRef();
+    this.liveRef = React.createRef();
+    this.vehRef = React.createRef();
+    this.dailyRef = React.createRef();
+    this.kmRef = React.createRef();
+    this.monthlyRef = React.createRef();
+  }
+  renderVals(){
+    const pace = this.props.pace ?? 'Cruising';
+    const mult = ({ 'Cruising':1, 'Rush hour':1.7, 'Highway sprint':0.55 })[pace] ?? 1;
+    const base = [22, 15, 18, 16, 13];
+    const d = base.map(b => (b * mult).toFixed(1) + 's');
+    return {
+      root: this.root, liveRef: this.liveRef,
+      vehRef: this.vehRef, dailyRef: this.dailyRef, kmRef: this.kmRef, monthlyRef: this.monthlyRef,
+      liveTicker: this.props.liveTicker ?? true,
+      dur1: d[0], dur2: d[1], dur3: d[2], dur4: d[3], dur5: d[4],
+    };
+  }
+  componentDidMount(){
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const scope = this.root.current || document;
+
+    const items = Array.from(scope.querySelectorAll('[data-reveal]'));
+    if (reduce) {
+      items.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; io.unobserve(e.target); }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -6% 0px' });
+      items.forEach(el => io.observe(el));
+      this._io = io;
+    }
+
+    const counters = [
+      { ref: this.vehRef, to: 5, suffix: '' },
+      { ref: this.dailyRef, to: 1000, suffix: '+' },
+      { ref: this.kmRef, to: 200, suffix: '+' },
+      { ref: this.monthlyRef, to: 30000, suffix: '+' },
+    ];
+    const run = (node, to, suffix) => {
+      const dur = 1500, t0 = performance.now();
+      const step = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        const e = 1 - Math.pow(1 - p, 3);
+        node.textContent = Math.round(to * e).toLocaleString('en-US') + (p === 1 ? suffix : '');
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    if (reduce) {
+      counters.forEach(c => { if (c.ref.current) c.ref.current.textContent = c.to.toLocaleString('en-US') + c.suffix; });
+    } else {
+      const cio = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            const cfg = counters.find(c => c.ref.current === e.target);
+            if (cfg) run(e.target, cfg.to, cfg.suffix);
+            cio.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      counters.forEach(c => { if (c.ref.current) cio.observe(c.ref.current); });
+      this._cio = cio;
+    }
+
+    if (this.liveRef.current) {
+      let n = 1000 + Math.floor(Math.random() * 420);
+      const paint = () => { if (this.liveRef.current) this.liveRef.current.textContent = n.toLocaleString('en-US'); };
+      paint();
+      this._live = setInterval(() => { n += 1 + Math.floor(Math.random() * 3); paint(); }, reduce ? 1400 : 150);
+    }
+  }
+  componentWillUnmount(){
+    clearInterval(this._live);
+    if (this._io) this._io.disconnect();
+    if (this._cio) this._cio.disconnect();
+  }
+}
+</script>
+</body>
+</html>
