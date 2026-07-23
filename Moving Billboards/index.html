@@ -224,9 +224,8 @@ a:hover { color: var(--color-accent-800); }
 .btn-primary:hover { transform:translateY(-2px); box-shadow:var(--shadow-md); filter:brightness(1.04); }
 .btn-ghost:hover, .btn-secondary:hover { transform:translateY(-1px); }
 
-/* Logo badge: transparent by default; press-and-hold reveals warm brown (easter egg) */
-.mb-logo-badge { background:transparent; box-shadow:none; padding:4px; transition:background-color .5s ease,box-shadow .5s ease; -webkit-touch-callout:none; -webkit-tap-highlight-color:transparent; user-select:none; }
-.mb-logo-badge:active { background:var(--color-accent-900); box-shadow:var(--shadow-sm); }
+/* Logo badge: permanent warm-brown backing so the orange logo pops */
+.mb-logo-badge { background:var(--color-accent-900); box-shadow:var(--shadow-sm); padding:4px; }
 
 @media (prefers-reduced-motion: reduce){
   .mb-card img, .mb-card:hover img { transform:none; }
