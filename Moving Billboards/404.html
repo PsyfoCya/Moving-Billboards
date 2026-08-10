@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 &mdash; Page not found</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f5ead8">
+<link rel="icon" href="/assets/favicon-v2.png" type="image/png" sizes="256x256">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon-v2.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;600&display=swap">
+
+<style>
+  /* Tokens lifted from the Organic design system so this page stands alone:
+     no stylesheet, bundle or script to load, nothing to 404 on its way in. */
+  :root {
+    --color-bg: #f5ead8;
+    --color-surface: #ebddc5;
+    --color-text: #201e1d;
+    --color-neutral-600: #82796a;
+    --color-neutral-700: #645c50;
+    --color-accent-500: #d67f48;
+    --color-divider: color-mix(in srgb, #201e1d 16%, transparent);
+    --font-heading: "Caprasimo", Georgia, serif;
+    --font-body: "Figtree", system-ui, sans-serif;
+    --radius-lg: 28px;
+    --shadow-md: 0 3px 10px color-mix(in srgb, #2e2b25 16%, transparent);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 26.4px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  main {
+    width: 100%;
+    max-width: 32rem;
+    padding: 44px 35.2px 48px;
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+  }
+
+  .code {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(4rem, 18vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+
+  .rule {
+    width: 56px;
+    height: 3px;
+    margin: 26.4px auto;
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-accent-500);
+  }
+
+  h1 {
+    margin: 0 0 13.2px;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(1.25rem, 4.5vw, 1.6rem);
+    line-height: 1.25;
+  }
+
+  p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-neutral-700);
+  }
+
+  .quiet {
+    margin-top: 26.4px;
+    padding-top: 17.6px;
+    border-top: 1px solid var(--color-divider);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-neutral-600);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #201e1d;
+      --color-surface: #2e2b25;
+      --color-text: #f9f4ed;
+      --color-neutral-600: #a19786;
+      --color-neutral-700: #c0b6a5;
+      --color-divider: color-mix(in srgb, #f9f4ed 18%, transparent);
+      --shadow-md: 0 3px 10px rgb(0 0 0 / 45%);
+    }
+  }
+</style>
+</head>
+<body>
+  <main>
+    <p class="code">404</p>
+    <hr class="rule">
+    <h1>This page isn&rsquo;t here.</h1>
+    <p>The address may be mistyped, or the page may have been moved or taken down.</p>
+    <p class="quiet">Moving Billboards</p>
+  </main>
+</body>
+</html>

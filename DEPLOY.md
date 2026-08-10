@@ -4,6 +4,19 @@ The website lives in the **`Moving Billboards/`** folder of this repo. It is a
 static site (HTML/CSS/JS, no build step), so deployment is fast and free on
 Vercel's Hobby plan.
 
+## Current status: the site is offline
+
+Every URL — including the homepage — now serves `Moving Billboards/404.html`
+with a real HTTP 404. Nothing was deleted: `index.html` and the rest of the
+site are still in this repo, they are just listed in
+`Moving Billboards/.vercelignore` so Vercel never uploads them. `robots.txt`
+also disallows all crawling, and `sitemap.xml` is no longer served.
+
+**To bring the site back:** delete `Moving Billboards/.vercelignore`, restore
+`robots.txt` to `Allow: /` with the sitemap line, and redeploy. `404.html` can
+stay — with `index.html` deployed again it goes back to being an ordinary
+not-found page for unknown URLs.
+
 ## 1. Import the project
 
 1. Go to <https://vercel.com/new> and import this GitHub repo.
