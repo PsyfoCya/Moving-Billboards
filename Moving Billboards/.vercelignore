@@ -1,0 +1,12 @@
+# Site offline — everything below stays in the repo but is not uploaded to
+# Vercel, so no page is reachable and every route falls through to 404.html.
+# To bring the site back: delete this file (or empty it) and redeploy.
+
+index.html
+Moving Billboards.dc.html
+ds-base.js
+support.js
+image-slot.js
+_ds
+uploads
+sitemap.xml
