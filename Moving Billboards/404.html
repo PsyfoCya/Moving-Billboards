@@ -50,12 +50,41 @@
   main {
     width: 100%;
     max-width: 32rem;
+    perspective: 1400px;
+  }
+
+  /* The two faces sit back to back and the whole card rotates between them.
+     The front is in normal flow so it sets the height; the back is pinned
+     over it, pre-rotated, and hidden until the card turns. */
+  .card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.75s cubic-bezier(0.4, 0.1, 0.2, 1);
+  }
+
+  .card.flipped { transform: rotateY(180deg); }
+
+  .face {
     padding: 44px 35.2px 48px;
     border-radius: var(--radius-lg);
     background: var(--color-surface);
     box-shadow: var(--shadow-md);
     text-align: center;
+    backface-visibility: hidden;
   }
+
+  .face.back {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .face.back:focus { outline: none; }
 
   .code {
     margin: 0;
@@ -65,6 +94,73 @@
     line-height: 0.95;
     letter-spacing: -0.02em;
     color: var(--color-text);
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: transform 0.18s ease;
+  }
+
+  .code:hover { transform: translateY(-2px); }
+  .code:active { transform: translateY(0) scale(0.97); }
+
+  .code:focus-visible {
+    outline: 2px solid var(--color-accent-500);
+    outline-offset: 6px;
+    border-radius: var(--radius-lg);
+  }
+
+  /* ── Back face ─────────────────────────────────────────────────────── */
+
+  .mark {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 17.6px;
+    color: var(--color-accent-500);
+  }
+
+  .credit-label {
+    margin: 0 0 8.8px;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-neutral-600);
+  }
+
+  .credit-name {
+    margin: 0 0 17.6px;
+    font-family: var(--font-heading);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    line-height: 1.1;
+    color: var(--color-text);
+  }
+
+  .credit-name a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-accent-500);
+    padding-bottom: 2px;
+  }
+
+  .credit-name a:hover { color: var(--color-accent-500); }
+
+  .credit-line {
+    margin: 0;
+    max-width: 22rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-neutral-700);
+  }
+
+  .back-hint {
+    margin: 26.4px 0 0;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--color-neutral-600);
   }
 
   .rule {
@@ -112,15 +208,78 @@
       --shadow-md: 0 3px 10px rgb(0 0 0 / 45%);
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card { transition: none; }
+    .code { transition: none; }
+    .code:hover, .code:active { transform: none; }
+  }
 </style>
 </head>
 <body>
   <main>
-    <p class="code">404</p>
-    <hr class="rule">
-    <h1>This page has been taken down.</h1>
-    <p>It is no longer available at this address.</p>
-    <p class="quiet">Moving Billboards</p>
+    <div class="card" id="card">
+
+      <div class="face front" id="front">
+        <button type="button" class="code" id="knock" aria-label="404">404</button>
+        <hr class="rule">
+        <h1>This page has been taken down.</h1>
+        <p>It is no longer available at this address.</p>
+        <p class="quiet">Moving Billboards</p>
+      </div>
+
+      <div class="face back" id="back" tabindex="-1" aria-hidden="true" inert>
+        <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 17l6-6 4 4 8-8" />
+        </svg>
+        <p class="credit-label">Designed &amp; built by</p>
+        <p class="credit-name"><a href="https://github.com/PsyfoCya" rel="noopener">PsyfoCya</a></p>
+        <p class="credit-line">Every part of this site &mdash; the layout, the type, the code &mdash; was made by hand. The page is gone. The craft isn&rsquo;t.</p>
+        <p class="back-hint">Click anywhere to go back</p>
+      </div>
+
+    </div>
   </main>
+
+<script>
+  // Easter egg: knock three times on the 404 and the card turns over to the
+  // build credit. Knocks lapse after 1.2s so a stray double-click won't do it.
+  (function () {
+    var card  = document.getElementById('card');
+    var front = document.getElementById('front');
+    var back  = document.getElementById('back');
+    var knock = document.getElementById('knock');
+    var knocks = 0, timer = null, flipped = false;
+
+    function show(on) {
+      flipped = on;
+      // Both faces stay rendered — backface-visibility does the hiding, so the
+      // turn animates in both directions. inert + aria-hidden keep whichever
+      // face is pointing away out of the a11y tree and out of the tab order.
+      face(back, on);
+      face(front, !on);
+      card.classList.toggle('flipped', on);
+      (on ? back : knock).focus({ preventScroll: true });
+    }
+
+    function face(el, visible) {
+      el.inert = !visible;
+      el.setAttribute('aria-hidden', visible ? 'false' : 'true');
+    }
+
+    knock.addEventListener('click', function () {
+      clearTimeout(timer);
+      if (++knocks >= 3) { knocks = 0; show(true); return; }
+      timer = setTimeout(function () { knocks = 0; }, 1200);
+    });
+
+    back.addEventListener('click', function () { show(false); });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && flipped) show(false);
+    });
+  })();
+</script>
 </body>
 </html>
